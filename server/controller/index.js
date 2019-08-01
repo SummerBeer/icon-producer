@@ -7,11 +7,8 @@ const Repo = require('../model/repoModel.js');
  * @return: icon
  */
 const iconSave = (icon) => {
-  const { className, label, repoId } = icon;
   const _icon = new Icon({
-    className,
-    label,
-    repoId
+    ...icon
   });
   _icon.save();
 };

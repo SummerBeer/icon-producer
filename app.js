@@ -18,7 +18,7 @@ app.use('/', route);
 app.use('/static', express.static(__dirname + '/static'));
 
 // 设置渲染模版引擎
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.listen(9999, () => {
   console.log('server is running on port : 9999');

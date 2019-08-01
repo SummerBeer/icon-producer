@@ -1,0 +1,7 @@
+extends common/common
+
+block content
+  form(action="/icon" method='post' enctype='multipart/form-data')
+    .form-group
+      input(type='file' name='file' multiple)
+      input.btn.btn-primary(type='submit' value='提交')

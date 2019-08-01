@@ -1,0 +1,32 @@
+extends common/common
+
+block content
+  form(action='#' onclick='return false;')
+    .form-group
+      label 图标库名称
+      input#repoName.form-control-file(type='text' name='repoName')
+    .form-group
+      button#submit.btn.btn-primary 提交
+      div#tip
+  style.
+    form {
+      padding: 20px;
+    }
+    #tip {
+      margin: 10px;
+    }
+  script.
+    $('#submit').click(() => {
+      const repoName = $('#repoName').val();
+      const param = { repoName };
+      $.ajax({
+        data: param,
+        url: '/repo',
+        type: 'post',
+        success: (res) => {
+          const tip = $('#tip');
+          tip.text(res.msg);
+          tip.css('color', `${res.code === 0 ? 'green' : 'red'}`);
+        }
+      })
+    })
